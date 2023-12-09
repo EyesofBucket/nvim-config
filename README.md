@@ -1,0 +1,1 @@
+# EyesofBucket's Neovim Config
