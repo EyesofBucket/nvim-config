@@ -52,6 +52,7 @@ return require('packer').startup(function(use)
         }
     })
     use("numToStr/FTerm.nvim")
+    use("eandrju/cellular-automaton.nvim")
 
     if packer_bootstrap then
         require('packer').sync()
