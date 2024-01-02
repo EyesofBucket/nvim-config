@@ -53,6 +53,18 @@ return require('packer').startup(function(use)
     })
     use("numToStr/FTerm.nvim")
     use("eandrju/cellular-automaton.nvim")
+    use("lambdalisue/suda.vim")
+    use("nvim-tree/nvim-tree.lua")
+    use("nvim-tree/nvim-web-devicons")
+    use {
+        "folke/which-key.nvim",
+        config = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+            require("which-key").setup {
+            }
+        end
+    }
 
     if packer_bootstrap then
         require('packer').sync()
