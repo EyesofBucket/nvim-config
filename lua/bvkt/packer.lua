@@ -54,6 +54,7 @@ return require('packer').startup(function(use)
     use("numToStr/FTerm.nvim")
     use("eandrju/cellular-automaton.nvim")
     use("lambdalisue/suda.vim")
+    use("ixru/nvim-markdown")
     use("nvim-tree/nvim-tree.lua")
     use("nvim-tree/nvim-web-devicons")
     use {
