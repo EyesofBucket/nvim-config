@@ -1,2 +1,2 @@
 require("bvkt")
-pcall(function () require("custom") end)
+pcall(function() require("custom") end)
