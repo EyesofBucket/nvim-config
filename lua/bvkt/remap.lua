@@ -1,13 +1,4 @@
-local wk = require("which-key")
-
 vim.g.mapleader = " "
-
-wk.register({
-p = {
-    name = "Panes",
-    v = "Netrw",
-  },
-}, { prefix = "<leader>" })
 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
