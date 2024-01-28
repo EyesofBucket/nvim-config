@@ -123,11 +123,34 @@ require("lazy").setup({
         },
         opts = {
             ensure_installed = {
-                'lua_ls',
+                'lua-language-server',
             },
         },
         config = function(_, opts)
             require("mason").setup(opts)
+            local mr = require("mason-registry")
+            mr:on("package:install:success", function()
+                vim.defer_fn(function()
+                    -- trigger FileType event to possibly load this newly installed LSP server
+                    require("lazy.core.handler.event").trigger({
+                        event = "FileType",
+                        buf = vim.api.nvim_get_current_buf(),
+                    })
+                end, 100)
+            end)
+            local function ensure_installed()
+                for _, tool in ipairs(opts.ensure_installed) do
+                    local p = mr.get_package(tool)
+                    if not p:is_installed() then
+                        p:install()
+                    end
+                end
+            end
+            if mr.refresh then
+                mr.refresh(ensure_installed)
+            else
+                ensure_installed()
+            end
         end,
     },
     "hrsh7th/nvim-cmp",
@@ -170,6 +193,17 @@ require("lazy").setup({
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
+        config = function() 
+            local configs = require("nvim-treesitter.configs")
+
+            configs.setup({
+                ensure_installed = { "python", "c", "lua", "vim", "vimdoc", "query", "dockerfile", "html", "markdown", "markdown_inline", "nix", "javascript", "json", "git_config", "git_rebase", "gitcommit", "gitignore", "passwd", "ssh_config", "toml", "yaml" },
+                sync_install = false,
+                additional_vim_regex_highlighting = false,
+                highlight = { enable = true },
+                indent = { enable = true },  
+            })
+        end
     },
     {
         "nvim-treesitter/playground",
