@@ -1,8 +1,20 @@
 return {
     "mbbill/undotree",
+    lazy = false,
     keys = {
-        { "<leader>ut", vim.cmd.UndotreeToggle, "Undotree: Toggle" },
-        { "<leader>uf", function() vim.vim.cmd.Undotrecmd.UndotreeShow() vim.cmd.UndotreeFocus() end, "Undotree: Focus" },
+        {
+            "<leader>ut",
+            vim.cmd.UndotreeToggle,
+            desc = "Undotree: Toggle"
+        },
+        {
+            "<leader>uf",
+            function()
+                vim.cmd.UndotreeShow()
+                vim.cmd.UndotreeFocus()
+            end,
+            desc = "Undotree: Focus"
+        },
     },
     init = function()
         vim.g.undotree_WindowLayout = 2
