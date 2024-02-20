@@ -1,7 +1,11 @@
 return {
     "tpope/vim-fugitive",
+    cmd = "Git",
     keys = {
-        { "<leader>gs", vim.cmd.Git , desc = "Git: Status (top)" },
-        { "<leader>gv", ':botright vertical Git<CR>', desc = "Git: Status (vertical)", { noremap = true, silent = true }},
+        {
+            "<leader>gd",
+            "<CMD>Gdiffsplit<CR>",
+            desc = "Git: Diff",
+        },
     },
 }
