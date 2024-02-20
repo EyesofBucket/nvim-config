@@ -1,6 +1,5 @@
 return {
     "neovim/nvim-lspconfig",
-    lazy = false,
     dependencies = {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
@@ -8,6 +7,7 @@ return {
         "hrsh7th/cmp-nvim-lsp",
         "L3MON4D3/LuaSnip",
     },
+    event = { 'BufRead' },
     keys = {
         { "<leader>pm", "<CMD>Mason<CR>", desc = "Open Mason" },
     },

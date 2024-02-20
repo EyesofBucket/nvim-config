@@ -1,6 +1,6 @@
 return {
     "mbbill/undotree",
-    lazy = false,
+    event = { 'BufRead' },
     keys = {
         {
             "<leader>ut",
