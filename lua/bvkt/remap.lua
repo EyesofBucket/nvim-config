@@ -6,4 +6,4 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("n", "J", "mzJ`z")
 
-vim.keymap.set("v", "<leader>gt", ":s/\\v<%((.)%(\\w{3,})@=|(i>))(\\w*)/\\u\\1\\L\\2\\3/g<CR>")
+vim.keymap.set("v", "gt", ":s/\\v<%((.)%(\\w{3,})@=|(i>))(\\w*)/\\u\\1\\L\\2\\3/g<CR>", {desc = "Title caps"})
