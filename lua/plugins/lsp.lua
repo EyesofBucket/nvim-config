@@ -17,17 +17,16 @@ return {
         vim.api.nvim_create_autocmd('LspAttach', {
             desc = 'LSP actions',
             callback = function(event)
-                local opts = {buffer = event.buf}
-                vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-                vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-                vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-                vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-                vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-                vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-                vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-                vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-                vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-                vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+                vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, {buffer = event.buf, desc = "Go to definition",})
+                vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, {buffer = event.buf})
+                vim.keymap.set("n", "<leader>vw", function() vim.lsp.buf.workspace_symbol() end, {buffer = event.buf, desc = "Workspace symbols",})
+                vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, {buffer = event.buf, desc = "Diag: Open float",})
+                vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, {buffer = event.buf, desc = "Next Diag",})
+                vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, {buffer = event.buf, desc = "Previous Diag",})
+                vim.keymap.set("n", "<leader>va", function() vim.lsp.buf.code_action() end, {buffer = event.buf, desc = "Code actions",})
+                vim.keymap.set("n", "<leader>vr", function() vim.lsp.buf.references() end, {buffer = event.buf, desc = "Show references",})
+                vim.keymap.set("n", "<leader>vn", function() vim.lsp.buf.rename() end, {buffer = event.buf, desc = "Rename",})
+                vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, {buffer = event.buf})
             end,
         })
 

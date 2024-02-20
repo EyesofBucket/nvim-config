@@ -4,5 +4,17 @@ return {
     init = function()
         vim.o.timeout = true
         vim.o.timeoutlen = 300
-    end
+    end,
+    opts = {},
+    config = function()
+        require("which-key").register({
+            e = { name = "Explorer", },
+            f = { name = "Fun", },
+            g = { name = "Git", },
+            p = { name = "Panes", },
+            s = { name = "Suda", },
+            u = { name = "Undotree", },
+            v = { name = "Lsp", },
+        }, { prefix = "<leader>" })
+    end,
 }
