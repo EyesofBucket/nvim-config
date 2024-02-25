@@ -1,7 +1,6 @@
 return {
     "epwalsh/obsidian.nvim",
     version = "*",
-    lazy = true,
     ft = "markdown",
     dependencies = {
         "hrsh7th/nvim-cmp",
@@ -14,11 +13,12 @@ return {
             {
                 name = "EyesofBucket",
                 path = "~/Obsidian/EyesofBucket",
+                overrides = {
+                    templates = {
+                        subdir = "_/Templates",
+                    },
+                },
             },
-        },
-        completion = {
-            nvim_cmp = true,
-            min_chars = 0,
         },
     },
 }

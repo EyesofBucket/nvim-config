@@ -11,6 +11,7 @@ return {
             e = { name = "Explorer", },
             f = { name = "Fun", },
             g = { name = "Git", },
+            h = { name = "Help", },
             p = { name = "Panes", },
             s = { name = "Suda", },
             u = { name = "Undotree", },
