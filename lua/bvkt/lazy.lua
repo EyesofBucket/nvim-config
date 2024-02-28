@@ -17,8 +17,6 @@ require("lazy").setup(
     {
         ui = {
             border = "rounded",
-            title = "Lazy",
-            title_pos = "left",
         },
     }
 )
